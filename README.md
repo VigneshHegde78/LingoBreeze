@@ -20,31 +20,31 @@ This project strictly follows a **Feature-First Architecture** on the frontend t
 1.  Navigate into the backend project directory:
 ```bash
     cd backend
-    ```
+```
 2.  Install the required Node.js package dependencies:
 ```bash
     npm install
-    ```
+```
 3.  Configure Firebase credentials for the backend. Set `GOOGLE_APPLICATION_CREDENTIALS` or `FIREBASE_SERVICE_ACCOUNT_KEY_PATH` to a local service account JSON file. If you keep a local copy in `backend/serviceAccountKey.json`, it will be used automatically but should not be committed.
 4.  Start the local development API server:
 ```bash
     node index.js
-    ```
-    The server will launch locally at `http://localhost:3000`.
+```
+The server will launch locally at `http://localhost:3000`.
 
 ### 2. Flutter App Setup
 1.  Open a new terminal tab and navigate into the Flutter application directory:
 ```bash
     cd flutter-app
-    ```
+```
 2.  Fetch all required Dart application packages:
 ```bash
     flutter pub get
-    ```
+```
 3.  Launch the application on Chrome Web (or an active device emulator):
 ```bash
     flutter run -d chrome
-    ```
+```
 
 ---
 
