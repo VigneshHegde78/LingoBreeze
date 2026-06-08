@@ -1,11 +1,23 @@
 const express = require("express");
 const cors = require("cors");
 const admin = require("firebase-admin");
+const fs = require("fs");
+const path = require("path");
 
-// 1. Hook up Firebase Keys
-const serviceAccount = require("./serviceAccountKey.json");
+// 1. Hook up Firebase credentials without committing secrets
+const serviceAccountPath = process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH || path.join(__dirname, "serviceAccountKey.json");
+
+let firebaseCredential;
+
+if (fs.existsSync(serviceAccountPath)) {
+	const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, "utf8"));
+	firebaseCredential = admin.credential.cert(serviceAccount);
+} else {
+	firebaseCredential = admin.credential.applicationDefault();
+}
+
 admin.initializeApp({
-	credential: admin.credential.cert(serviceAccount),
+	credential: firebaseCredential,
 });
 
 const db = admin.firestore();
@@ -30,7 +42,7 @@ app.get("/words", async (req, res) => {
 });
 
 // 4. Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-	console.log(`Server is running on http://localhost:${PORT}`);
+const PORT = 3000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`LingoBreeze API is listening at port ${PORT}`);
 });

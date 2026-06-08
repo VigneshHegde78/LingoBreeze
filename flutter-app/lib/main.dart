@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:lingobreeze/features/vocabulary/views/vocabulary_view.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(
     // ProviderScope for Riverpod!
-    const ProviderScope(
-      child: LingoBreezeApp(),
-    ),
+    const ProviderScope(child: LingoBreezeApp()),
   );
 }
 
@@ -30,11 +27,7 @@ class LingoBreezeApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Scaffold(
-        body: Center(
-          child: Text("LingoBreeze Foundation Ready!"),
-        ),
-      ),
+      home: VocabularyView(),
     );
   }
 }
