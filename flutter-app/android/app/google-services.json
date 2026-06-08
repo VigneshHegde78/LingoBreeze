@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "706653603540",
+    "project_id": "lingo-breeze-7c616",
+    "storage_bucket": "lingo-breeze-7c616.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706653603540:android:ca30c654a15c4f90211d41",
+        "android_client_info": {
+          "package_name": "com.vhx.lingobreeze"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYZtEg8wZfbN60s7jXr7b4U7ODLEzhl0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
